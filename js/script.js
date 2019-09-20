@@ -44,6 +44,7 @@ const showPage = (list, page) => {
    //STUCK HERE//
    // Loop over the list parameter. Inside the loop, display any list item with an index
    // that is greater than or equal to the startIndex and less than the endIndex variable
+   
    for (i = 0; i < listItem.length; i += 1){
       console.log(i);
    }
