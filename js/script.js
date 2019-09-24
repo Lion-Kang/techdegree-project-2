@@ -15,11 +15,6 @@ const showPage = (list, page) => {
    for (i = 0; i < listItems.length; i += 1){
       if ((i < endIndex) && (i >= startIndex)) {
          listItems[i].style.display = 'block';
-
-         paginationDiv = document.createElement('div');
-         paginationDiv.innerHTML = listItems[i];
-         document.body.appendChild(paginationDiv);
-         
       }  else {
          listItems[i].style.display = 'none';
       }
@@ -27,18 +22,32 @@ const showPage = (list, page) => {
    }
 
 }
-showPage('',1);
+showPage(listItems, 1);
 
 /*** 
    Create the `appendPageLinks function` to generate, append, and add 
    functionality to the pagination buttons.
 ***/
 
+
 const appendPageLinks = (list) => {
    totalPages = Math.ceil(listItems.length/itemsPerPage);
    console.log(totalPages);
+
+   paginationDiv = document.createElement('div');
+   paginationDiv.className = ('pagination');
+   page = document.querySelector('.page');
+   page.appendChild(paginationDiv);
+   ul = document.createElement('ul');
+   paginationDiv.appendChild(ul);
+
+   for (i = 0; i < page.length; i += 1) {
+      let li = document.createElement('li');
+      let a = document.createElement('a');
+      a.href = '#';
+   }
 }
-appendPageLinks();
+appendPageLinks(listItems);
 
 
 // Remember to delete the comments that came with this file, and replace them with your own code comments.
