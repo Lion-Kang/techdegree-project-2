@@ -11,17 +11,23 @@ itemsPerPage = 10;
 const showPage = (list, page) => {
    startIndex = (page * itemsPerPage) - itemsPerPage;
    endIndex = (page * itemsPerPage);
-   
+
    for (i = 0; i < listItems.length; i += 1){
       if ((i < endIndex) && (i >= startIndex)) {
          listItems[i].style.display = 'block';
+
+         paginationDiv = document.createElement('div');
+         paginationDiv.innerHTML = listItems[i];
+         document.body.appendChild(paginationDiv);
+         
       }  else {
          listItems[i].style.display = 'none';
       }
+
    }
 
 }
-showPage();
+showPage('',1);
 
 /*** 
    Create the `appendPageLinks function` to generate, append, and add 
