@@ -25,7 +25,6 @@ const showPage = (list, page) => {
    }
 
 }
-showPage(listItems, 2);
 
 /*** 
    Create the `appendPageLinks function` to generate, append, and add 
@@ -34,34 +33,16 @@ showPage(listItems, 2);
 
 // ***FUNCTION appendPageLinks*** - This function is supposed to create buttons for each page (NOT FINISHED) 
 const appendPageLinks = (list) => {
+   // total amount of students in the list
+   let totalStudents = listItems.length
    // Ceil the amount of list items to find the amount of pages needed   
-   totalPages = Math.ceil(listItems.length/itemsPerPage);
-   //console.log(totalPages);
-   
-   // Create button 
-   nextButton = document.createElement('nextButton');
-   
-   // ??? Set page to button ???
-   nextButton.innerHTML = page;
-   const button = document.getElementsByTagName('button')[0];
-   // Set listener on button 
-   nextButton.addEventListener ('click', function() {
-      showPage(listItems, page)
-   })
+   let totalPages = Math.ceil(listItems.length/itemsPerPage);
+   // Select page number to pass through showPage function to select page number
+   let selectedButton = 1;
 
-   // Create HTML elements for pagination links
-   paginationDiv = document.createElement('div');
-   paginationDiv.className = ('pagination');
-   page = document.querySelector('.page');
-   page.appendChild(paginationDiv);
-   ul = document.createElement('ul');
-   paginationDiv.appendChild(ul);
+   showPage(list, selectedButton)
 
-   // add 'li' and 'a' to all pagination elements
-   for (i = 0; i < page.length; i += 1) {
-      let li = document.createElement('li');
-      let a = document.createElement('a');
-      a.href = '#'; 
-   }
+   // create button for pages
+
 }
 appendPageLinks(listItems);
